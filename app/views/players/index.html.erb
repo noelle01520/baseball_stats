@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h1>Hitting stats - <span class="header_year"><%= @selected_year %></span></h1>
+</div>
+<div class="container-fluid">
+  <div class="table-responsive">
+    <table id="players" class="table table-striped" data-source="<%= players_url(format: "json") %>">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Team</th>
+        <th>Division</th>
+        <th>League</th>
+        <th>AVG</th>
+        <th>HR</th>
+        <th>RBI</th>
+        <th>RUNS</th>
+        <th>SB</th>
+        <th>OPS</th>
+      </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+</div>
+<%= javascript_tag do %>
+    var selected_year = '<%= @selected_year %>';
+    var select_years = '<%= @years %>';
+<% end %>
+

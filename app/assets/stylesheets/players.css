@@ -1,0 +1,56 @@
+/*
+ * Base structure
+ */
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+}
+
+
+
+/*
+ * Main content
+ *= require dataTables/jquery.dataTables
+ */
+
+.main {
+  padding: 20px;
+}
+@media (min-width: 768px) {
+  .main {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+.main .page-header {
+  margin-top: 0;
+}
+
+.dataTables_wrapper .dataTables_processing {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    width: 30%;
+    height: 60px;
+    margin-left: -20%;
+    margin-top: -25px;
+    padding-top: 20px;
+    border: solid;
+    text-align: center;
+    font-size: 1.2em;
+    background-color: white;
+    z-index: 10;
+}
+
+.page-header {
+    padding: 20px;
+    margin-top: -25px;
+}
+@media (min-width: 768px) {
+    .page-header {
+        padding-right: 40px;
+        padding-left: 40px;
+        background-color: #dff0d8;
+    }
+}

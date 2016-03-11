@@ -1,0 +1,15 @@
+== Baseball stats sample application
+
+Sample Ruby on Rails application that processes XML and
+displays it a table.
+
+== Configuration
+
+Ruby version: 2.2.3
+Rails version: 4.2.4
+
+== Deployment
+Unzip to applicatoin directory
+rake db:migrate
+rails s
+
