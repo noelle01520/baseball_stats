@@ -70,7 +70,7 @@ class PlayersDatatable
   end
 
   def sort_column
-    columns = %w[name position team division league avg home_runs rbi runs stolen_bases ops]
+    columns = %w[name position team_name division league avg home_runs rbi runs stolen_bases ops]
     columns[params[:iSortCol_0].to_i]
   end
 
