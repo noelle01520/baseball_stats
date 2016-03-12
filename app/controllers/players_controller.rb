@@ -3,7 +3,6 @@ class PlayersController < ApplicationController
   # Determine year to display and create object to generate
   # JSON data for dataTable.
   def index
-
     # Array of years that stats are provided for
     years = [1998]
 

@@ -126,12 +126,12 @@ class PlayersDatatable
                 league: league_name,
                 year: year,
 
-                avg: calc_avg(hits, at_bats),
+                avg: avg(hits, at_bats),
                 home_runs: home_runs,
                 rbi: rbi,
                 runs: runs,
                 stolen_bases: stolen_bases.to_i,
-                ops: (calc_obp(hits, walks, at_bats, sacrifice_flies) + calc_slg(hits, doubles, triples, home_runs, at_bats)).round(2)
+                ops: ops(hits, walks, at_bats, sacrifice_flies, doubles, triples, home_runs).round(2)
 
             }
             batch << Player.new(player_hash)
@@ -147,16 +147,21 @@ class PlayersDatatable
     Player.import batch
   end
 
-  def calc_avg(hits, at_bats)
-    if at_bats != 0
-      avg = (hits/at_bats).round(3) * 1000
-    else
-      avg = 0
-    end
-    avg
+  # Return OPS (OBP + SLG)
+  def ops(hits, walks, at_bats, sacrifice_flies, doubles, triples, home_runs)
+    obp(hits, walks, at_bats, sacrifice_flies) + slg(hits, doubles, triples, home_runs, at_bats)
   end
 
-  def calc_obp(hits, walks, at_bats, sacrifice_flies)
+  # Return batting average
+  def avg(hits, at_bats)
+    if at_bats != 0
+      (hits/at_bats).round(3) * 1000
+    else
+      0
+    end
+  end
+
+  def obp(hits, walks, at_bats, sacrifice_flies)
     if at_bats + walks + sacrifice_flies != 0
       (hits + walks)/(at_bats + walks + sacrifice_flies)
     else
@@ -164,7 +169,7 @@ class PlayersDatatable
     end
   end
 
-  def calc_slg(hits, doubles, triples, home_runs, at_bats)
+  def slg(hits, doubles, triples, home_runs, at_bats)
     if at_bats != 0
       non_singles = doubles + triples + home_runs
       (((hits - non_singles) + non_singles)/at_bats)

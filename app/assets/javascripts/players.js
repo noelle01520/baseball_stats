@@ -6,6 +6,7 @@ $(function(){
      */
     var players_table = $('#players').DataTable({
         sPaginationType: "full_numbers",
+        iDisplayLength: 25,
         bJQueryUI: true,
         stateSave: true,
         bFilter: false,
