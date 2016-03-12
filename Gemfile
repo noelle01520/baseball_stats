@@ -19,8 +19,8 @@ gem 'coffee-rails', '~> 4.1.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # For jquery datatables
+gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 group :assets do
-  gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
   gem 'jquery-ui-rails'
 end
 
@@ -45,7 +45,11 @@ gem 'activerecord-import', '>=0.4.0'
 # gem 'capistrano-rails', group: :development
 
 # Use RSpec for testing
-gem 'rspec-rails'
+group :test do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'capybara'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
