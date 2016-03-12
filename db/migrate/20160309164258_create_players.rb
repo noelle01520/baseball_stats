@@ -12,8 +12,7 @@ class CreatePlayers < ActiveRecord::Migration
       t.integer :home_runs
       t.integer :rbi
       t.integer :runs
-      t.string :stolen_bases
-      t.string :int
+      t.integer :stolen_bases
       t.float :ops
 
       t.timestamps null: false
