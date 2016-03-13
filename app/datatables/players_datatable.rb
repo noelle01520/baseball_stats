@@ -171,8 +171,8 @@ class PlayersDatatable
 
   def slg(hits, doubles, triples, home_runs, at_bats)
     if at_bats != 0
-      non_singles = doubles + triples + home_runs
-      (((hits - non_singles) + non_singles)/at_bats)
+      singles = hits - (doubles + triples + home_runs)
+      ((singles + (2*doubles) + (3*triples) + (4*home_runs))/at_bats)
     else
       0
     end
